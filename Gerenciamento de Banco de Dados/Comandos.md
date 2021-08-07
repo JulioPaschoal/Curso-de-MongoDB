@@ -34,3 +34,9 @@
 	mongorestore <diretorio>
 # 18- Minitoramento do MogoDB
 	mongostat
+# 19- Removendo todos o Banco de uma x so
+	Mongo().getDBNames().forEach(function(db) {
+		if(['admin', 'config', 'local'].indexOf(db) <0) {
+			Mongo().getDB(db).dropDatabase();
+			}
+	});
